@@ -1,0 +1,125 @@
+---
+import type Index from '@/pages/index.astro';
+import { SEO } from 'astro-seo';
+import type { TwitterCardType, Link, Meta } from 'astro-seo';
+type Props = {
+	title?: string;
+	description?: string;
+	canonical?: string;
+	noindex?: boolean;
+	nofollow?: boolean;
+	link?: Partial<Link>[];
+	meta?: Partial<Meta>[];
+	twitter?: {
+		card: TwitterCardType;
+		creator?: string;
+		description?: string;
+		image?: string | URL;
+		imageAlt?: string;
+		site?: string;
+		title?: string;
+	};
+	openGraph?: {
+		basic: {
+			title: string;
+			type: 'website' | 'article';
+			image: string;
+			url: string;
+		};
+		optional?: {
+			audio?: string;
+			description?: string;
+			determiner?: string;
+			locale?: 'fa_IR';
+			localeAlternate?: Array<string>;
+			siteName?: string;
+			video?: string;
+		};
+		image?: {
+			url?: string;
+			secureUrl?: string;
+			type?: string;
+			width?: number;
+			height?: number;
+			alt?: string;
+		};
+		article?: {
+			publishedTime?: string;
+			modifiedTime?: string;
+			expirationTime?: string;
+			author?: string[];
+			section?: string;
+			tags?: string[];
+		};
+	};
+};
+const dataDefault: Props = {
+	title: 'خرید تلفن اینترنتی VoIP و خط تلفن ثابت ابری | آس تل',
+	description:
+		'مشاوره و راه اندازی سرویس VoIP،قیمت خرید خط تلفن اینترنتی و شماره سیپ ترانک برای تلفن ثابت اینترنتی و تلفن ابری شرکت ها و فروشگاه های آنلاین',
+	canonical: Astro.url.href,
+	openGraph: {
+		basic: {
+			title: 'خرید تلفن اینترنتی VoIP و خط تلفن ثابت ابری | آس تل',
+			image: 'https://astel.ir/wp-content/uploads/2022/03/VoIP-astel.png',
+			type: 'website',
+			url: Astro.url.href,
+		},
+		optional: {
+			description:
+				'مشاوره و راه اندازی سرویس VoIP،قیمت خرید خط تلفن اینترنتی و شماره سیپ ترانک برای تلفن ثابت اینترنتی و تلفن ابری شرکت ها و فروشگاه های آنلاین',
+			locale: 'fa_IR',
+			siteName: 'آس تل - خرید خط تلفن ثابت اینترنتی voip',
+		},
+	},
+	twitter: {
+		card: 'summary_large_image',
+		creator: 'Hossein Mohmmadian',
+		description:
+			'مشاوره و راه اندازی سرویس VoIP،قیمت خرید خط تلفن اینترنتی و شماره سیپ ترانک برای تلفن ثابت اینترنتی و تلفن ابری شرکت ها و فروشگاه های آنلاین',
+		image: 'https://astel.ir/wp-content/uploads/2022/03/VoIP-astel.png',
+		imageAlt: 'خرید تلفن اینترنتی VoIP و خط تلفن ثابت ابری | آس تل',
+		title: 'خرید تلفن اینترنتی VoIP و خط تلفن ثابت ابری | آس تل',
+		site: Astro.url.href,
+	},
+};
+const {
+	title = dataDefault.title,
+	description = dataDefault.description,
+	openGraph = dataDefault.openGraph,
+	twitter = dataDefault.twitter,
+	canonical = dataDefault.canonical,
+	nofollow,
+	noindex,
+	link,
+	meta,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="fa-IR" dir="rtl">
+	<head>
+		<SEO
+			title={title}
+			description={description}
+			charset="UTF-8"
+			openGraph={openGraph}
+			twitter={twitter}
+			canonical={canonical}
+			transition:animate={'fade'}
+			extend={{
+				link: link,
+				meta: meta,
+			}}
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="shortlink" href={Astro.url.host} />
+		<link rel="profile" href="https://gmpg.org/xfn/11" />
+		<link rel="icon" href="/favicon.svg" sizes="32x32" />
+		<link rel="icon" href="/favicon.svg" sizes="192x192" />
+		<link rel="apple-touch-icon" href="/favicon.svg" />
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
