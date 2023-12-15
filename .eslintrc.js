@@ -4,7 +4,7 @@ module.exports = {
     es2022: true,
     browser: true,
   },
-  extends: ['eslint:recommended', 'plugin:astro/recommended', 'plugin:svelte/recommended'],
+  extends: ['eslint:recommended', 'plugin:astro/recommended', 'plugin:solid/typescript'],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -20,11 +20,17 @@ module.exports = {
       rules: {},
     },
     {
-      files: ['*.svelte'],
-      parser: 'svelte-eslint-parser',
+      plugins: ["solid"],
       parserOptions: {
-        parser: '@typescript-eslint/parser',
+        ecmaFeatures: {
+          jsx: true
+        }
       },
+      rules: {
+        "solid/reactivity": "warn",
+        "solid/no-destructure": "warn",
+        "solid/jsx-no-undef": "error"
+      }
     },
     {
       files: ['*.ts'],

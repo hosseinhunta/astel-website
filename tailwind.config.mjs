@@ -1,43 +1,121 @@
 /** @type {import('tailwindcss').Config} */
-
-const defaultTheme = require('tailwindcss/defaultTheme');
-
 export default {
-	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+	content: ['./src/**/*.{astro,html,md,mdx,ts,tsx}', './node_modules/flowbite/**/*.js'],
+	safelist: [
+		'w-64',
+		'w-1/2',
+		'rounded-l-lg',
+		'rounded-r-lg',
+		'bg-gray-200',
+		'grid-cols-4',
+		'grid-cols-7',
+		'h-6',
+		'leading-6',
+		'h-9',
+		'leading-9',
+		'shadow-lg',
+	],
 	theme: {
+		screens: {
+			sm: '640px',
+			md: '768px',
+			lg: '1024px',
+			xl: '1280px',
+			'2xl': '1536px',
+		},
 		extend: {
 			fontFamily: {
-				Iransans: ['Iransans'],
-				Yekan: ['Yekan'],
-				Anjoman: ['Anjoman'],
-				Mehrajan: ['Mehrajan'],
+				sans: ['Iransans'],
+				yekan: ['Yekan'],
+			},
+			colors: {
+				background: '#FAFBFF',
+				foreground: '#FFFFFF',
+				accent: '#9197B3',
+				landing_background: '#03091E',
+				primary: {
+					default: '#5932EA',
+					100: '#E1D6FD',
+					200: '#C3ADFC',
+					300: '#A183F8',
+					400: '#8463F2',
+					500: '#5932EA',
+					600: '#4324C9',
+					700: '#3119A8',
+					800: '#210F87',
+					900: '#160970',
+				},
+				seconder: {
+					default: '#C2EA34',
+					100: '#F8FDD6',
+					200: '#F0FCAE',
+					300: '#E4F884',
+					400: '#D6F265',
+					500: '#C2EA34',
+					600: '#A1C926',
+					700: '#82A81A',
+					800: '#658710',
+					900: '#507009',
+				},
+				success: {
+					default: '#00AC4F',
+					100: '#C8FACB',
+					200: '#94F6A3',
+					300: '#5CE67F',
+					400: '#33CD6A',
+					500: '#00AC4F',
+					600: '#009352',
+					700: '#007B51',
+					800: '#00634B',
+					900: '#005246',
+				},
+				info: {
+					default: '#0F5FC2',
+					100: '#CDEAFB',
+					200: '#9DD2F8',
+					300: '#69B0EC',
+					400: '#438DDA',
+					500: '#0F5FC2',
+					600: '#0A49A6',
+					700: '#07368B',
+					800: '#042670',
+					900: '#021A5D',
+				},
+				warning: {
+					default: '#FFD000',
+					100: '#FFF9CC',
+					200: '#FFF299',
+					300: '#FFE866',
+					400: '#FFDF3F',
+					500: '#FFD000',
+					600: '#DBAE00',
+					700: '#B78E00',
+					800: '#937000',
+					900: '#7A5A00',
+				},
+				danger: {
+					default: '#DA001A',
+					100: '#FDD7CA',
+					200: '#FBA696',
+					300: '#F36B61',
+					400: '#E83A3E',
+					500: '#DA001A',
+					600: '#BB0027',
+					700: '#9C002F',
+					800: '#7E0032',
+					900: '#680033',
+				},
 			},
 		},
 	},
-	daisyui: {
-		themes: [
-			{
-				mytheme: {
-					primary: '#1e3a8a',
-
-					secondary: '#6731BB',
-
-					accent: '#f5f5f5',
-
-					neutral: '#f5f5f5',
-
-					'base-100': '#f5f5f5',
-
-					info: '#00AED1',
-
-					success: '#6DBF1A',
-
-					warning: '#C1AF07',
-
-					error: '#E23641',
-				},
-			},
-		],
-	},
-	plugins: [require('daisyui')],
+	plugins: [
+		require('@tailwindcss/forms'),
+		require('@tailwindcss/typography'),
+		require('tailwindcss-animate'),
+		require('flowbite/plugin')({
+			charts: true,
+			forms: true,
+			tooltips: true,
+		}),
+	],
 };

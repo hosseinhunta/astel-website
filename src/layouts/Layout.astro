@@ -1,5 +1,5 @@
 ---
-import type Index from '@/pages/index.astro';
+import '../components/app.css';
 import { SEO } from 'astro-seo';
 import type { TwitterCardType, Link, Meta } from 'astro-seo';
 type Props = {
@@ -118,153 +118,15 @@ const {
 
 		<link rel="shortlink" href={Astro.url.host} />
 		<link rel="profile" href="https://gmpg.org/xfn/11" />
-		<link rel="icon" href="/favicon.svg" sizes="32x32" />
-		<link rel="icon" href="/favicon.svg" sizes="192x192" />
-		<link rel="apple-touch-icon" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" sizes="32x32" />
+		<link rel="icon" href="/favicon.ico" sizes="192x192" />
+		<link rel="apple-touch-icon" href="/favicon.ico" />
 	</head>
-	<body>
-		<header>
-			<div class="navbar bg-gray-50 shadow-md rounded-b-xl p-2">
-				<div class="navbar-start">
-					<div class="flex">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke-width="1.5"
-							stroke="currentColor"
-							class="w-14 h-14 mx-2 ml-2 p-1.5 bg-blue-900 rounded-full text-white"
-						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"
-							></path>
-						</svg>
-						<div class="flex flex-col">
-							<div class="flex flex-row">
-								<h3 class="text-3xl font-extrabold font-Yekan mx-1 text-blue-900">آس</h3>
-								<h3 class="text-3xl font-extrabold font-Yekan mx-1 text-blue-700">تل</h3>
-							</div>
-							<h4 class="text-md font-extrabold font-Yekan text-primary">
-								درگاه مدیریت کاربر سیموتل
-							</h4>
-						</div>
-					</div>
-				</div>
-				<div class="navbar-center">
-					<ul class="hidden md:flex md:flex-row">
-						<li>
-							<a
-								class="btn btn-ghost btn-primary mx-1 text-md btn-outline w-32"
-								href={Astro.url.pathname === '/' ? null : '/'}>پیش خوان</a
-							>
-						</li>
-						<li>
-							<a
-								class="btn btn-ghost btn-primary mx-1 text-md btn-outline w-32"
-								href={Astro.url.pathname === '/muser' ? null : '/muser'}>مدیریت کاربران</a
-							>
-						</li>
-					</ul>
-				</div>
-				<div class="navbar-end">
-					<div class="hidden max-[400px]:flex">
-						<div class="dropdown dropdown-hover dropdown-left">
-							<div tabindex="0" role="button" class="btn m-1 btn-primary text-white">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke-width="1.5"
-									stroke="currentColor"
-									class="w-6 h-6"
-								>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
-								</svg>
-							</div>
-							<ul
-								tabindex="0"
-								class="dropdown-content z-[1] menu p-2 shadow bg-primary glass rounded-box w-52"
-							>
-								<li>
-									<a
-										class="text-white my-1 text-md w-auto"
-										href={Astro.url.pathname === '/' ? null : '/'}>پیش خوان</a
-									>
-								</li>
-								<li>
-									<a class={Astro.url.pathname === '/muser' ? null : '/muser'}>مدیریت کاربران</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<ul class="md:hidden flex sm:flex-row max-[400px]:hidden">
-						<li>
-							<a
-								class="btn btn-primary btn-ghost mx-1 text-md btn-outline w-24"
-								href={Astro.url.pathname === '/' ? null : '/'}>پیش خوان</a
-							>
-						</li>
-						<li>
-							<a
-								class="btn btn-primary btn-ghost mx-1 text-md btn-outline w-24"
-								href={Astro.url.pathname === '/muser' ? null : '/muser'}>مدیریت کاربران</a
-							>
-						</li>
-					</ul>
-					<div class="md:flex md:flex-row hidden">
-						<div class="avatar">
-							<div class="w-10 mask mask-squircle mx-1">
-								<img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-							</div>
-						</div>
-						<div class="flex flex-col mx-1">
-							<span class="text-sm text-primary">حسین محمدیان نژاد</span>
-							<span class="text-xs text-primary">کارشناس پشتیبانی</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<main class="mx-6">
-				<slot />
-			</main>
-			<style is:global>
-				@font-face {
-					font-family: 'Yekan';
-					src: url('/fonts/YekanBakh-Medium.eot');
-					src:
-						local('/fonts/YekanBakh-Medium'),
-						url('/fonts/YekanBakh-Medium.eot?#iefix') format('embedded-opentype'),
-						url('/fonts/YekanBakh-Medium.woff2') format('woff2'),
-						url('/fonts/YekanBakh-Medium.woff') format('woff'),
-						url('/fonts/YekanBakh-Medium.ttf') format('truetype');
-					font-weight: 500;
-					font-style: normal;
-					font-display: swap;
-				}
-				@font-face {
-					font-family: 'Anjoman';
-					src: url('/fonts/Anjoman Regular.ttf');
-				}
-				@font-face {
-					font-family: 'Iransans';
-					src: url('/fonts/Iranian Sans.ttf');
-				}
-				@font-face {
-					font-family: 'Iran';
-					src:
-						local('/fonts/YekanBakh-Medium'),
-						url('/fonts/IRANSansWeb_FaNum_.woff') format('woff');
-				}
-				html {
-					font-family: 'Iran', system-ui, sans-serif;
-					background-color: #f5f5f5;
-				}
-			</style>
-		</header>
-	</body>
+	<body class="bg-backgroun font-sans">
+		<header><slot name="header" /></header>
+		<slot />
+		<footer><slot name="footer" /></footer>
+	</body><script
+		is:inline
+		src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
 </html>

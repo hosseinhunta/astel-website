@@ -1,0 +1,13 @@
+{
+  "cSpell.words": [
+    "astro",
+    "astrojs",
+    "clsx",
+    "Iransans",
+    "partytown",
+    "spotlightjs",
+    "tailwindcss",
+    "yekan"
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib"
+}

@@ -1,0 +1,25 @@
+@font-face {
+	font-family: 'Yekan';
+	src: url('/fonts/YekanBakh-Medium.eot');
+	src:
+		local('/fonts/YekanBakh-Medium'),
+		url('/fonts/YekanBakh-Medium.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/YekanBakh-Medium.woff2') format('woff2'),
+		url('/fonts/YekanBakh-Medium.woff') format('woff'),
+		url('/fonts/YekanBakh-Medium.ttf') format('truetype');
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Iransans';
+	src:
+		local('/fonts/IRANSansWeb_FaNum_'),
+		url('/fonts/IRANSansWeb_FaNum_.woff') format('woff');
+}
+
+.gradient_Plum_to_Blue {
+	background: linear-gradient(108deg, #eaabf0 7.37%, #4623e9 95.19%);
+}
+.gradient_Rose_to_Light_cyan {
+	fill: linear-gradient(201deg, #ff007a 3.14%, #cdf4ff 86.04%);
+}
